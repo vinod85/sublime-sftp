@@ -2,5 +2,13 @@
 	{
 		"caption": "SFTP: Setup Server",
 		"command": "sftpsetup"
+	},
+	{
+		"caption": "SFTP: Edit Server",
+		"command": "sftpedit"
+	},
+	{
+		"caption": "SFTP: Delete Server",
+		"command": "sftpdelete"
 	}
 ]
