@@ -66,3 +66,12 @@ class sftpdeleteCommand(sublime_plugin.WindowCommand):
 	def run(self):
 		self.find_server_settings()
 		self.window.show_quick_panel(self.servers, self.on_select)
+
+if __name__ == 'sftp':
+
+	# Create settings directory
+	if not os.path.isdir(SETTINGS_PATH):
+		os.mkdir(SETTINGS_PATH)
+
+
+
