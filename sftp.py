@@ -37,7 +37,7 @@ class sftpeditCommand(sublime_plugin.WindowCommand):
 		if picked == -1:
 			return
 
-		filename = ''.join([sublime.packages_path(), '/User/sftp_servers/', self.servers[picked])
+		filename = ''.join([sublime.packages_path(), '/User/sftp_servers/', self.servers[picked]])
 		self.window.open_file(filename)
 
 	def run(self):
@@ -58,9 +58,9 @@ class sftpdeleteCommand(sublime_plugin.WindowCommand):
 		if picked == -1:
 			return
 
-		filename = ''.join([sublime.packages_path(), '/User/sftp_servers/', self.servers[picked])
+		filename = ''.join([sublime.packages_path(), '/User/sftp_servers/', self.servers[picked]])
 		os.remove(filename)
 
-    def run(self):
+	def run(self):
 		self.find_server_settings()
 		self.window.show_quick_panel(self.servers, self.on_select)
