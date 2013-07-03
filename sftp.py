@@ -5,13 +5,15 @@
 import sublime, sublime_plugin
 import os
 
+SETTINGS_PATH = sublime.packages_path() + '/User/sftp_servers'
+
 class Settings:
 	@staticmethod
 	def getDefaultSettings():
 			return """{
-	"user" : "",
-	"password" : "",
-	"default_path" : ""
+	"user":"${1:username}",
+	"password":"${2:secret}",
+	"default_path":"${3:path}"
 }"""
 
 class sftpsetupCommand(sublime_plugin.WindowCommand):
@@ -21,7 +23,7 @@ class sftpsetupCommand(sublime_plugin.WindowCommand):
 		new_view = self.window.new_file()
 		new_view.set_name('untitled')
 		edit = new_view.begin_edit()
-		new_view.insert(edit, 0, str(Settings.getDefaultSettings()))
+		new_view.run_command("insert_snippet", { "contents": "%s" %  Settings.getDefaultSettings() } )
 
 class sftpeditCommand(sublime_plugin.WindowCommand):
 	def __init__(self, win):
